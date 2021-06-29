@@ -67,3 +67,38 @@ h1 {
     max-width: 300px;
     max-height: 300px;
 }
+
+.toolbar-select {
+    width: auto;
+    border: none;
+    outline: none;
+    font-weight: bold;
+}
+
+.toolbar-icon-input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding-left: 10px;
+    justify-content: center;
+}
+
+.toolbar-color-input {
+    border: none;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    width: 30px;
+    height: 20px;
+    font-size: 20px;
+}
+
+.toolbar-color-input:hover {
+    background-color: #222;
+}
+
+.toolbar-color-input:active {
+    background-color: #000;
+}

@@ -1,5 +1,6 @@
 const output = document.querySelector('#output');
 const toolbarButtons = document.querySelectorAll('.toolbar-button');
+const colorInputs = document.querySelectorAll('.toolbar-color-input');
 
 toolbarButtons.forEach(button => {
     button.addEventListener('click', function() {
@@ -16,9 +17,32 @@ toolbarButtons.forEach(button => {
             document.execCommand(command, false, fontSize);
         } else if (command == 'insertImage') {
             let url = prompt('Enter the image url here: ');
-            document.execCommand(command, false, url);
+
+            if (url)
+                document.execCommand(command, false, url);
+        } else if (command == 'insertVideo') {
+            let iframe = prompt('Enter the YouTube iframe here: ');
+
+            if (iframe)
+                document.execCommand('insertHTML', false, iframe);
+        } else if (command == 'formatBlock') {
+            let tag = this.value;
+
+            if (tag)
+                document.execCommand(command, false, tag);
         } else {
             document.execCommand(command, false, null);
         }               
+    });
+});
+
+colorInputs.forEach(input => {
+    input.addEventListener('change', function() {
+        const command = input.dataset['command'];
+        const color = input.value;
+
+        console.log(command,color);
+
+        document.execCommand(command, false, color);
     });
 });
